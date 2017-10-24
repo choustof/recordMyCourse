@@ -2,15 +2,16 @@
  * Created by Lucie on 24/10/2017.
  */
 const video = document.getElementById('video');
+var boutonPlay = document.getElementById('btnPlay');
 
 function startup(){
 
     navigator.mediaDevices.getUserMedia({
-        audio: false,
+        audio: true,
         video: true
     }).then(stream => {
         video.srcObject = stream;
     }).catch(console.error)
 }
 
-window.addEventListener('load', startup, false);
+boutonPlay.addEventListener('click', startup);
