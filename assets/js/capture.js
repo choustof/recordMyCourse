@@ -1,9 +1,11 @@
 /**
  * Created by Lucie on 24/10/2017.
  */
-const video = document.getElementById('video');
+var video = document.getElementById('video');
 var buttonPlay = document.getElementById('btnPlay');
 var buttonStop = document.getElementById('btnStop');
+var streamAudio;
+var streamVideo;
 
 function startVideo(){
 
@@ -12,7 +14,10 @@ function startVideo(){
         video: true
     }).then(stream => {
         video.srcObject = stream;
-    }).catch(console.error)
+        streamAudio = stream.getTracks()[0];
+        streamVideo = stream.getTracks()[1];
+    }).catch(console.error);
+
     $('#video').toggle();
     $('#btnPlay').toggle();
     $('#btnStop').toggle();
@@ -21,8 +26,10 @@ function startVideo(){
 
 function stopVideo(){
 
-    video.stop();
+    streamAudio.stop(); 
+    streamVideo.stop();
     video = null;
+
 
 }
 
