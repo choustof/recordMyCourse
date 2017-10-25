@@ -2,9 +2,10 @@
  * Created by Lucie on 24/10/2017.
  */
 const video = document.getElementById('video');
-var boutonPlay = document.getElementById('btnPlay');
+var buttonPlay = document.getElementById('btnPlay');
+var buttonStop = document.getElementById('btnStop');
 
-function startup(){
+function startVideo(){
 
     navigator.mediaDevices.getUserMedia({
         audio: true,
@@ -12,6 +13,18 @@ function startup(){
     }).then(stream => {
         video.srcObject = stream;
     }).catch(console.error)
+    $('#video').toggle();
+    $('#btnPlay').toggle();
+    $('#btnStop').toggle();
+
 }
 
-boutonPlay.addEventListener('click', startup);
+function stopVideo(){
+
+    video.stop();
+    video = null;
+
+}
+
+buttonPlay.addEventListener('click', startVideo);
+buttonStop.addEventListener('click', stopVideo);
