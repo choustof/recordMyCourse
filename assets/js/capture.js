@@ -28,7 +28,11 @@ function stopVideo(){
 
     streamAudio.stop(); 
     streamVideo.stop();
-    video = null;
+    $('#video').toggle();
+    $('#btnPlay').toggle();
+    $('#btnStop').toggle();
+
+    window.scrollTo(0,0);
 
 
 }
