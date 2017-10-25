@@ -32,9 +32,7 @@ function stopVideo(){
     $('#btnPlay').toggle();
     $('#btnStop').toggle();
 
-    window.scrollTo(0,0);
-
-
+    window.scrollTo(0,0); 
 }
 
 buttonPlay.addEventListener('click', startVideo);
