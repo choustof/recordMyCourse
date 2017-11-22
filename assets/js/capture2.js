@@ -8,6 +8,8 @@ function captureCamera(callback) {
     });
 }
 function stopRecordingCallback() {
+
+    $('#btnStop').toggle();
     video.src = video.srcObject = null;
     video.src = URL.createObjectURL(recorder.getBlob());
     video.play();
@@ -17,6 +19,9 @@ function stopRecordingCallback() {
 }
 var recorder; // globally accessible
 document.getElementById('btnPlay').onclick = function() {
+    $('#video').toggle();
+    $('#btnPlay').toggle();
+    $('#btnStop').toggle();
     this.disabled = true;
     captureCamera(function(camera) {
         setSrcObject(camera, video);
