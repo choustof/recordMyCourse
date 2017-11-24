@@ -7,7 +7,7 @@ var fs = require('fs'),
 app.use(express.static(__dirname + '/assets'));
 
     app.get('/', function (req, res) {
-    	res.sendFile(path.join(__dirname+'/index2.html'));
+    	res.sendFile(path.join(__dirname+'/index3.html'));
     });
 
     https.createServer({

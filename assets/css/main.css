@@ -84,9 +84,10 @@ img.pull-left { margin-right: 10px; }
 
 
 /* Custom */
-#video {
+#video, #mediaElement {
 	display: none;
 }
+
 #btnStop {
 	display: none;
 }
