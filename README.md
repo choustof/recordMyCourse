@@ -22,7 +22,8 @@ Steps to follow
 2 - Open the NodeJs command prompt.
 3 - Move to the project root folder.
 4 - Use the commend "node app.js". The server will be launched on port 443.
-5 - On Google Chrome, go to "https://localhost:443".
+5 - On Google Chrome and install [ScreenCapturing] extension(https://chrome.google.com/webstore/detail/screen-capturing/ajhifddimkapgcifgcodmmfdlknahffk?utm_source=chrome-app-launcher-info-dialog).
+6 - On Google Chrome, go to "https://localhost:443".
 
 ```
 
