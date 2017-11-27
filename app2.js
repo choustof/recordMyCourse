@@ -9,6 +9,12 @@ app.use(express.static(__dirname + '/assets'));
     app.get('/', function (req, res) {
     	res.sendFile(path.join(__dirname+'/index3.html'));
     });
+    app.get('/about.html', function (req, res) {
+        res.sendFile(path.join(__dirname+'/about.html'));
+    });
+    app.get('/about.html', function (req, res) {
+        res.sendFile(path.join(__dirname+'/contact.html'));
+    });
 
     https.createServer({
       key: fs.readFileSync('hostkey.pem'),
