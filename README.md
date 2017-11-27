@@ -1,32 +1,36 @@
-Progressus - Free business/corporate Bootstrap template
-=============
+# Record My Course
 
-Progressus is a free, responsive, nice-looking business template based on Bootstrap HTML/CSS framework. 
+The purpose of this web application is to record lecture courses, and make them available for people to watch them online.
+The website gives you the possibility to record both webcam video and slides.
 
+## Technology used
 
-License
--------
-**Creative Commons Attribution 3.0** - http://creativecommons.org/licenses/by/3.0/
+This application uses HTML/CSS and Javascipt for the font, and NodeJs for the server part.
 
+## Getting Started
 
-Features
------------
+### Prerequisites
 
-* Easy to use, fat-free HTML and CSS code.
-* 7 ready-made templates for most common tasks
-* Responsive design
-* High overral quality, the template does worth to be premium.
+The application runs on a nodeJs server, and needs to be launched with HTTPS on Google Chrome.
 
+### Installing
 
-Bug tracker
------------
+Steps to follow 
 
-Found a bug? Please create an issue here on GitHub! 
-https://github.com/pozh/Progressus/issues
+```
+1 - Download and install NodeJs on your computer.
+2 - Open the NodeJs command prompt.
+3 - Move to the project root folder.
+4 - Use the commend "node app.js". The server will be launched on port 443.
+5 - On Google Chrome, go to "https://localhost:443".
 
+```
 
-Credits
--------
-* Design and development: **Sergey Pozhilov** - http://pozhilov.com
-* Photos used in template: **Unsplash** - http://unsplash.com
-* More free templates by Sergey: http://gettemplate.com
+## Built With
+
+* [RecordRTC](https://github.com/muaz-khan/RecordRTC/tree/master/simple-demos) - The library used
+
+## Authors
+
+* **Lucie Seurin** - **Kévin Valbon** - **Christophe Petit**
+
