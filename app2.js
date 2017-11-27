@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/assets'));
     app.get('/about.html', function (req, res) {
         res.sendFile(path.join(__dirname+'/about.html'));
     });
-    app.get('/about.html', function (req, res) {
+    app.get('/contact.html', function (req, res) {
         res.sendFile(path.join(__dirname+'/contact.html'));
     });
 
