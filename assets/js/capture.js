@@ -16,6 +16,9 @@ function startVideo(){
         video.srcObject = stream;
         streamAudio = stream.getTracks()[0];
         streamVideo = stream.getTracks()[1];
+        
+        video.play();
+        
     }).catch(console.error);
 
     $('#video').toggle();
@@ -25,6 +28,12 @@ function startVideo(){
 }
 
 function stopVideo(){
+    console.log(streamAudio)
+    console.log(streamVideo)
+    console.log(video.srcObject)
+
+
+
 
     streamAudio.stop(); 
     streamVideo.stop();

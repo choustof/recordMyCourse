@@ -91,3 +91,7 @@ img.pull-left { margin-right: 10px; }
 #btnStop {
 	display: none;
 }
+
+#btnSave {
+	display: none;
+}
