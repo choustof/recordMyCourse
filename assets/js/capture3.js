@@ -40,6 +40,8 @@ document.getElementById('btnPlay').onclick = function() {
     $('#btnStop').toggle();
     this.disabled = true;
 
+    $('#video').css({'position':'absolute'});
+
 
 
 
@@ -120,6 +122,8 @@ document.getElementById('btnStop').onclick = function() {
     this.disabled = true;
     console.log(recorder)
     //recorder.stopRecording(stopRecordingCallback);
+
+    $('#video').css({'position':'static'});
 
 
     recorder.stopRecording(function() {
