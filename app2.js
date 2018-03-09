@@ -1,8 +1,11 @@
 var fs = require('fs'),
     https = require('https'),
+    http = require('http'),
     express = require('express'),
     app = express(),
     path = require("path");
+
+var port = process.env.PORT || 443;
 
 app.use(express.static(__dirname + '/assets'));
 
@@ -16,9 +19,17 @@ app.use(express.static(__dirname + '/assets'));
         res.sendFile(path.join(__dirname+'/contact.html'));
     });
 
-    https.createServer({
-      key: fs.readFileSync('hostkey.pem'),
-      cert: fs.readFileSync('hostcert.pem')
-    }, app).listen(443);
 
-    console.log("Running at Port 443");
+if(port == 443){
+    https.createServer({
+        key: fs.readFileSync('hostkey.pem'),
+        cert: fs.readFileSync('hostcert.pem')
+    }, app).listen(port, function() {
+            console.log('DEV Listening on ' + port);
+        });
+}
+else{
+    http.createServer(app).listen(port, function() {
+        console.log('HEROKU Listening on ' + port);
+    });
+}
