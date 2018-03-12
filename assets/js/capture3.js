@@ -3,6 +3,7 @@ var video = document.querySelector('video');
 function captureCamera(callback) {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
         callback(camera);
+        //video.srcObject = camera;
     }).catch(function(error) {
         alert('Unable to capture your camera. Please check console logs.');
         console.error(error);
@@ -11,11 +12,16 @@ function captureCamera(callback) {
 
 function captureScreen(cb) {
     getScreenId(function (error, sourceId, screen_constraints) {
-        navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
+        navigator.mediaDevices.getUserMedia(screen_constraints).then(function(screen){
+            cb(screen);
+            video.srcObject = screen;
+
+        }).catch(function(error) {
           console.error('getScreenId error', error);
           alert('Failed to capture your screen. Please check Chrome console logs for further information.');
         });
     });
+
 }
 function stopRecordingCallback() {
 
@@ -40,13 +46,8 @@ document.getElementById('btnPlay').onclick = function() {
     $('#btnStop').toggle();
     this.disabled = true;
 
-    $('#video').css({'position':'absolute'});
-
-
-
-
-
-
+  
+   // $('#video').css({'position':'absolute'});
 
 captureScreen(function(screen) {
     captureCamera(function(camera) {

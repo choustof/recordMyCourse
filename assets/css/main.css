@@ -86,6 +86,7 @@ img.pull-left { margin-right: 10px; }
 /* Custom */
 #video, #mediaElement {
 	display: none;
+	position:relative;
 }
 
 #btnStop {
@@ -100,3 +101,10 @@ img.pull-left { margin-right: 10px; }
 	margin: 30px;
 }
 
+#video-container{
+	position : relative;
+}
+
+#layerA{
+	position:absolute;
+}

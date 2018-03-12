@@ -51,14 +51,17 @@
 			<div class="row">
 				<h1 class="lead">FILMEZ, COUPEZ, ENREGISTREZ</h1>
 				<p class="tagline">RECORD MY COURSE: Enregistrement de votre cours en temps réel !</p>
-				<video id="video" autoplay>Video stream not available</video>
-				<video id="mediaElement"></video>
-				<p id="button-bar">
-					
-					<a class="btn btn-action btn-lg" id="btnPlay" role="button">► FILMER UN COURS</a> 
-					<a class="btn btn-action btn-lg" id="btnStop" role="button">■ STOP</a>
-					<a class="btn btn-action btn-lg" id="btnSave" role="button">Sauvegarder la video</a>
-				</p>
+				<div id="video-container">
+					<video id="video" autoplay>Video stream not available</video>
+					<video id="mediaElement"></video>
+					<canvas id="layerA" width="40" height="40" style="left:5px; top:5px; opacity:0.5; border: 3px solid red; display:block;"></canvas>
+					<p id="button-bar">
+						
+						<a class="btn btn-action btn-lg" id="btnPlay" role="button">► FILMER UN COURS</a> 
+						<a class="btn btn-action btn-lg" id="btnStop" role="button">■ STOP</a>
+						<a class="btn btn-action btn-lg" id="btnSave" role="button">Sauvegarder la video</a>
+					</p>
+				</div>
 			</div>
 		</div>
 	</header>
