@@ -1,4 +1,5 @@
 var video = document.querySelector('video');
+var timer = new Timer();
 
 function captureCamera(callback) {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
@@ -68,6 +69,13 @@ captureScreen(function(screen) {
 
         recorder.startRecording();
         recorder.camera = camera;
+
+
+        timer.start({precision: 'secondTenths'});
+timer.addEventListener('secondsUpdated', function (e) {
+    console.log(timer.getTimeValues().secondTenths);
+
+});
         console.log(this)
 
         /*setTimeout(function() {

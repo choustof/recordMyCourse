@@ -3,11 +3,9 @@ var fs = require('fs'),
     http = require('http'),
     express = require('express'),
     app = express(),
-    Timer = require('easytimer.js'),
     path = require("path");
 
 var port = process.env.PORT || 443;
-var timerInstance = new Timer();
 
 app.use(express.static(__dirname + '/assets'));
 
