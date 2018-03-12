@@ -75,55 +75,12 @@ captureScreen(function(screen) {
 timer.addEventListener('secondsUpdated', function (e) {
     console.log(timer.getTimeValues().secondTenths);
 
+
 });
         console.log(this)
 
-        /*setTimeout(function() {
-            recorder.stopRecording(function() {
-                var blob = recorder.getBlob();
-                document.querySelector('video').src = URL.createObjectURL(blob);
-                document.querySelector('video').muted = false;
-
-                [screen, camera].forEach(function(stream) {
-                    stream.getVideoTracks().forEach(function(track) {
-                        track.stop();
-                    });
-
-                    stream.getAudioTracks().forEach(function(track) {
-                        track.stop();
-                    });
-                })
-            });
-        }, 9 * 1000);*/
     });
 });
-
-
-
-
-
-
-
-
-
-/*
-
-    screen.width = window.screen.width;
-        screen.height = window.screen.height;
-        screen.fullcanvas = true;
-    captureCamera(function(camera) {
-        setSrcObject(camera, video);
-        video.play();
-        console.log(camera)
-        console.log(video)
-        recorder = RecordRTC([camera], {
-            type: 'video'
-        });
-        recorder.startRecording();
-        // release camera on stopRecording
-        recorder.camera = camera;
-        document.getElementById('btnStop').disabled = false;
-    });*/
 
     
 };
