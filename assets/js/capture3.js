@@ -1,8 +1,10 @@
 var video = document.querySelector('video');
+var timer = new Timer();
 
 function captureCamera(callback) {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
         callback(camera);
+        //video.srcObject = camera;
     }).catch(function(error) {
         alert('Unable to capture your camera. Please check console logs.');
         console.error(error);
@@ -11,11 +13,16 @@ function captureCamera(callback) {
 
 function captureScreen(cb) {
     getScreenId(function (error, sourceId, screen_constraints) {
-        navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
+        navigator.mediaDevices.getUserMedia(screen_constraints).then(function(screen){
+            cb(screen);
+            video.srcObject = screen;
+
+        }).catch(function(error) {
           console.error('getScreenId error', error);
           alert('Failed to capture your screen. Please check Chrome console logs for further information.');
         });
     });
+
 }
 function stopRecordingCallback() {
 
@@ -40,13 +47,8 @@ document.getElementById('btnPlay').onclick = function() {
     $('#btnStop').toggle();
     this.disabled = true;
 
-    $('#video').css({'position':'absolute'});
-
-
-
-
-
-
+  
+   // $('#video').css({'position':'absolute'});
 
 captureScreen(function(screen) {
     captureCamera(function(camera) {
@@ -67,57 +69,22 @@ captureScreen(function(screen) {
 
         recorder.startRecording();
         recorder.camera = camera;
+
+
+        timer.start({precision: 'secondTenths'});
+timer.addEventListener('secondsUpdated', function (e) {
+    console.log(timer.getTimeValues().secondTenths);
+
+
+});
         console.log(this)
 
-        /*setTimeout(function() {
-            recorder.stopRecording(function() {
-                var blob = recorder.getBlob();
-                document.querySelector('video').src = URL.createObjectURL(blob);
-                document.querySelector('video').muted = false;
-
-                [screen, camera].forEach(function(stream) {
-                    stream.getVideoTracks().forEach(function(track) {
-                        track.stop();
-                    });
-
-                    stream.getAudioTracks().forEach(function(track) {
-                        track.stop();
-                    });
-                })
-            });
-        }, 9 * 1000);*/
     });
 });
 
-
-
-
-
-
-
-
-
-/*
-
-    screen.width = window.screen.width;
-        screen.height = window.screen.height;
-        screen.fullcanvas = true;
-    captureCamera(function(camera) {
-        setSrcObject(camera, video);
-        video.play();
-        console.log(camera)
-        console.log(video)
-        recorder = RecordRTC([camera], {
-            type: 'video'
-        });
-        recorder.startRecording();
-        // release camera on stopRecording
-        recorder.camera = camera;
-        document.getElementById('btnStop').disabled = false;
-    });*/
-
     
 };
+
 document.getElementById('btnStop').onclick = function() {
     this.disabled = true;
     console.log(recorder)
