@@ -93,6 +93,7 @@ document.getElementById('btnStop').onclick = function() {
     //recorder.stopRecording(stopRecordingCallback);
 
     $('#video').css({'position':'static'});
+    chaptersCreation();
 
 
     recorder.stopRecording(function() {

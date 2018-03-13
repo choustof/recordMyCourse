@@ -127,10 +127,10 @@ function checkAreas()
         }
         // calculate an average between of the color values of the note area [0-255]
         var average = Math.round(sum / (3 * countPixels));
-        if (average > 50) // more than 20% movement detected
+        if (average > 80) // more than 20% movement detected
         {
             console.log( "Mouvement au niveau de la zone " + buttons[b].name + " ." ); // do stuff
-            motionDetectionTime.push(timer.getTimeValues().toString());
+            motionDetectionTime.push(timer.getTotalTimeValues().seconds.toString());
         
         }
     }
