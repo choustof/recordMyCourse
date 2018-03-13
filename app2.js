@@ -26,7 +26,8 @@ app.get('/contact.html', function (req, res) {
 });
 
 
-
+/*Envoie du formulaire de connexion
+*/
 app.post('/login', function(req, res) {
 
     if(!req.body){
@@ -39,7 +40,8 @@ app.post('/login', function(req, res) {
 
 
 
-
+/*Upload d'une vidéo sur le serveur
+*/
 app.post('/upload',function(req,res){
 
   
@@ -77,7 +79,8 @@ app.post('/upload',function(req,res){
 
 
 
-
+/*Route de récupération d'une vidéo sur le serveur
+*/
 app.get('/video/:id?', function(req, res) {
 
     if(req.params.id){
@@ -118,6 +121,8 @@ app.get('/video/:id?', function(req, res) {
   
 })
 
+/*Ajout de la vidéo dans le JSON de la base de données
+*/
 function addVideoToJSON(dataVideo){
     fs.readFile('./assets/JSON/bdd.json', 'utf-8', function(err, data) {
     if (err) throw err
@@ -135,7 +140,8 @@ function addVideoToJSON(dataVideo){
 })
 }
 
-
+/*Choix du port en fonction de l'environnement
+*/
 
 if(port == 443){
     https.createServer({

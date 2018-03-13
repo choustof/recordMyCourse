@@ -2,6 +2,8 @@ var video = document.querySelector('video');
 var timer = new Timer();
 var motionDetectionTime = [];
 
+/*Capture de la webcam
+*/
 function captureCamera(callback) {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
         callback(camera);
@@ -12,6 +14,8 @@ function captureCamera(callback) {
     });
 }
 
+/*Capture de l'écran
+*/
 function captureScreen(cb) {
     getScreenId(function (error, sourceId, screen_constraints) {
         navigator.mediaDevices.getUserMedia(screen_constraints).then(function(screen){
@@ -25,6 +29,9 @@ function captureScreen(cb) {
     });
 
 }
+
+/*Arrêt de l'enregistrement
+*/
 function stopRecordingCallback() {
 
     $('#btnStop').toggle();
@@ -38,19 +45,19 @@ function stopRecordingCallback() {
     
 }
 
-
-var recorder = {}; // globally accessible
+var recorder = {};
 recorder.test = "test1";
 
+/*Attribution de l'action du bouton d'enregistrement
+*/
 document.getElementById('btnPlay').onclick = function() {
     $('#video').toggle();
     $('#btnPlay').toggle();
     $('#btnStop').toggle();
     this.disabled = true;
 
-  
-   // $('#video').css({'position':'absolute'});
-
+/*Démarrage de l'enregistrement de la caméra et de l'écran
+*/
 captureScreen(function(screen) {
     captureCamera(function(camera) {
 
@@ -86,6 +93,8 @@ timer.addEventListener('secondsUpdated', function (e) {
     
 };
 
+/*Arrêt de l'enregistrement
+*/
 document.getElementById('btnStop').onclick = function() {
     this.disabled = true;
     console.log(motionDetectionTime.toString());
@@ -116,6 +125,8 @@ document.getElementById('btnStop').onclick = function() {
             });
 };
 
+/*Bouton de sauvengarde de la vidéo en local
+*/
 
 document.getElementById('btnSave').onclick = function() {
                     if(!recorder) return alert('No recording found.');
@@ -127,6 +138,9 @@ document.getElementById('btnSave').onclick = function() {
                     invokeSaveAsDialog(file, file.name);
                 };
 
+
+/*Bouton d'upload de la vidéo sur le serveur
+*/
 $('#btnUpload2').click(function() {
 
 
@@ -163,7 +177,8 @@ $('#btnUpload2').click(function() {
                     console.log(file);
 });
 
-
+/*Envoie du formulaire de connexion
+*/
 $('#send_login').click(function() {
 
 
