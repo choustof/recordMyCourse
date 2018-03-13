@@ -1,10 +1,6 @@
 var video = document.querySelector('video');
 var timer = new Timer();
 
- for (var i = 0; i < 2; i++) {
-    buffers.push(new Uint8Array(width * height));
-  }
-
 function captureCamera(callback) {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
         callback(camera);
