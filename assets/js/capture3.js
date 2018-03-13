@@ -160,3 +160,24 @@ $('#btnUpload2').click(function() {
                     console.log(file);
 });
 
+
+$('#send_login').click(function() {
+
+
+
+                    var pseudo = $('#last_name_login').val();
+                    var mdp = $('#password_login').val();
+
+
+                    var request = new XMLHttpRequest();
+
+                    request.onload = function () {
+                        alert('connexion done');
+                    }
+
+                    request.open("POST", "https://localhost:443/login", true);
+                    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    request.send("pseudo="+pseudo+"&mdp="+mdp+"");
+
+});
+

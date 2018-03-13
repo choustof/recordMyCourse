@@ -4,9 +4,12 @@ var fs = require('fs'),
     express = require('express'),
     app = express(),
     path = require("path"),
-    upload = require("express-fileupload");
+    upload = require("express-fileupload"),
+    bodyParser = require('body-parser');
 
 app.use(upload());
+
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 var port = process.env.PORT || 443;
 
@@ -23,8 +26,22 @@ app.get('/contact.html', function (req, res) {
 });
 
 
+
+app.post('/login', function(req, res) {
+
+    if(!req.body){
+        res.send('You sent nothing');
+    }else{
+        console.log(req.body)
+        res.send('connected');
+    }
+});
+
+
+
+
 app.post('/upload',function(req,res){
-  console.log(req.files);
+
   
   if(req.files.thefile){
     var file = req.files.thefile,
@@ -32,7 +49,6 @@ app.post('/upload',function(req,res){
       desc = file.name.split("|")[1],
       type = file.mimetype;
 
-      console.log(desc);
     var uploadpath = __dirname + '/videos/' + name;
    /* if(fs.existsSync(uploadpath)){
         console.log("File name Failed");
@@ -111,9 +127,6 @@ function addVideoToJSON(dataVideo){
         titre: dataVideo.titre,
         desc: dataVideo.desc
     })
-    console.log(dataVideo);
-
-    console.log(arrayOfObjects)
 
     fs.writeFile('./assets/JSON/bdd.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
         if (err) throw err

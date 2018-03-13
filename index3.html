@@ -39,11 +39,96 @@
 					<li class="active"><a href="#">Accueil</a></li>
 					<li><a href="about.html">Cours</a></li>
 					<li><a href="contact.html">Contact</a></li>
+					<li><a type="button" class="btn btn-default" data-toggle="modal" data-target="#loginModal">Se connecter</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
 	</div> 
 	<!-- /.navbar -->
+
+
+	<!-- Login modal -->
+            <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="loginModalLabel">Connexion</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" >
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="last_name">Pseudo</label> 
+                                    <div class="col-md-9 inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <input id="last_name_login" name="last_name" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                    <label class="col-md-3 control-label" for="mdp">Mot de passe</label> 
+                                    <div class="col-md-9 inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <input id="password_login" name="password" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                	<div class="col-md-12">
+                                    	<button id="send_login" type="submit" class="btn btn-warning">Se connecter</button>
+                                    </div>
+                                    <div class="col-md-12">
+                                    	<a data-toggle="modal" data-target="#signinModal">Vous n'avez pas de compte ? Cliquez ici</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- /Login modal -->
+	<!-- Sign in modal -->
+            <div id="signinModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="signinModalLabel">Inscription</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" action=" " method="post"  id="contact_form">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="last_name">Pseudo</label> 
+                                    <div class="col-md-9 inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <input id="last_name_signin" name="last_name" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                    <label class="col-md-3 control-label" for="password">Mot de passe</label> 
+                                    <div class="col-md-9 inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <input id="password_signin" name="password" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                    <label class="col-md-3 control-label" for="confirmation">Confirmation du mot de passe</label> 
+                                    <div class="col-md-9 inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <input id="confirmation_signin" name="confirmation" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button id="send_signin" type="submit" class="btn btn-warning">S'inscrire</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- /Sign in modal -->
 	<!-- Header -->
 	<header id="head">
 		<div class="container">
@@ -184,7 +269,7 @@
 						<h3 class="widget-title">Suivez-nous</h3>
 						<div class="widget-body">
 							<p class="follow-me-icons">
-								<a href="https://github.com/choustof/recordMyCourse"><i class="fa fa-github fa-2"></i></a>
+								<a href="https://github.com/choustof/recordMyCourse"><i class="fa fa-github fa-2" aria-hidden></i></a>
 							</p>
 						</div>
 					</div>
