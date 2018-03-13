@@ -1,5 +1,6 @@
 var video = document.querySelector('video');
 var timer = new Timer();
+var motionDetectionTime = [];
 
 function captureCamera(callback) {
     navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
@@ -34,7 +35,7 @@ function stopRecordingCallback() {
     recorder.camera.stop();
     recorder.destroy();
     recorder = null;
-    console.log(recorder);
+    
 }
 
 
@@ -73,7 +74,7 @@ captureScreen(function(screen) {
 
         timer.start({precision: 'secondTenths'});
 timer.addEventListener('secondsUpdated', function (e) {
-    console.log(timer.getTimeValues().secondTenths);
+    console.log(timer.getTimeValues().toString());
 
 
 });
@@ -87,6 +88,7 @@ timer.addEventListener('secondsUpdated', function (e) {
 
 document.getElementById('btnStop').onclick = function() {
     this.disabled = true;
+    console.log(motionDetectionTime.toString());
     console.log(recorder)
     //recorder.stopRecording(stopRecordingCallback);
 

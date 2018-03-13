@@ -39,14 +39,13 @@ var button1 = new Image();
 button1.src ="images/SquareRed.png";
 var buttonData1 = { name:"red", image:button1, x:320 - 96 - 30, y:10, w:32, h:32 };
 buttons.push( buttonData1 );
-var button2 = new Image();
-button2.src ="images/SquareGreen.png";
+/*button2.src ="images/SquareGreen.png";
 var buttonData2 = { name:"green", image:button2, x:320 - 64 - 20, y:10, w:32, h:32 };
 buttons.push( buttonData2 );
 var button3 = new Image();
 button3.src ="images/SquareBlue.png";
 var buttonData3 = { name:"blue", image:button3, x:320 - 32 - 10, y:10, w:32, h:32 };
-buttons.push( buttonData3 );
+buttons.push( buttonData3 );*/
 // start the loop               
 animate();
 function animate() 
@@ -131,6 +130,7 @@ function checkAreas()
         if (average > 50) // more than 20% movement detected
         {
             console.log( "Mouvement au niveau de la zone " + buttons[b].name + " ." ); // do stuff
+            motionDetectionTime.push(timer.getTimeValues().toString());
         
         }
     }
