@@ -129,6 +129,7 @@ document.getElementById('btnStop').onclick = function() {
     recorder.stopRecording(function() {
                 var blob = recorder.getBlob();
                 $('#btnSave').toggle();
+                $('#btnUpload').toggle();
                 $('#btnStop').toggle();
                 document.querySelector('video').src = URL.createObjectURL(blob);
                 document.querySelector('video').muted = false;
@@ -155,3 +156,40 @@ document.getElementById('btnSave').onclick = function() {
 
                     invokeSaveAsDialog(file, file.name);
                 };
+
+$('#btnUpload2').click(function() {
+
+
+
+                    var name = $('#inputTitre').val();
+                    var desc = $('#inputDesc').val();
+
+                    if(!recorder) return alert('No recording found.');
+
+                    var file = new File([recorder.getBlob()], $('#inputTitre').val()+"|"+$('#inputDesc').val(), {
+                        type: 'video/webm'
+                    });
+
+                    console.log(file)
+
+                    var request = new XMLHttpRequest();
+
+                    var formData = new FormData();
+                    formData.append("thefile", file);
+
+
+                    var url = "https://localhost:443/upload";
+                    var method = "POST";
+                    var shouldBeAsync = true;
+
+                    request.onload = function () {
+                        alert('upload done');
+                    }
+
+                    request.open(method, url, shouldBeAsync)
+                    //request.setRequestHeader("Content-Type", "multipart/form-data;boundary=abc");
+                    //request.send(file);
+                    request.send(formData);
+                    console.log(file);
+});
+

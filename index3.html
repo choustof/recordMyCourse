@@ -44,7 +44,6 @@
 		</div>
 	</div> 
 	<!-- /.navbar -->
-
 	<!-- Header -->
 	<header id="head">
 		<div class="container">
@@ -58,6 +57,38 @@
 					<a class="btn btn-action btn-lg" id="btnPlay" role="button">► FILMER UN COURS</a> 
 					<a class="btn btn-action btn-lg" id="btnStop" role="button">■ STOP</a>
 					<a class="btn btn-action btn-lg" id="btnSave" role="button">Sauvegarder la video</a>
+					<a class="btn btn-action btn-lg" id="btnUpload" role="button" data-toggle="modal" href="#myModal">Uploader la video</a>
+					
+
+  					<!-- Modal -->
+					  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					    <div class="modal-dialog">
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					          <h4 class="modal-title">Upload de la video</h4>
+					        </div>
+					        <div class="modal-body">
+
+								
+								  <div class="form-group">
+								    <label id="test" for="formGroupExampleInput">Titre</label>
+								    <input type="text" class="form-control" id="inputTitre" placeholder="Example input">
+								  </div>
+								 
+								  <div class="input-group">
+								  	<label for="formGroupExampleInput2">Description</label>
+								  	<textarea class="form-control"  rows="3"  id="inputDesc" placeholder="Description"></textarea>
+								</div>
+							
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn" data-dismiss="modal">Fermer</button>
+					          <button type="button" id="btnUpload2" class="btn btn-primary">Uploader</button>
+					        </div>
+					      </div><!-- /.modal-content -->
+					    </div><!-- /.modal-dialog -->
+					  </div><!-- /.modal -->
 				</p>
 			</div>
 		</div>

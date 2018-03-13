@@ -96,7 +96,29 @@ img.pull-left { margin-right: 10px; }
 	display: none;
 }
 
+#btnUpload {
+	display: none;
+}
+
 #button-bar{
 	margin: 30px;
 }
 
+
+.modal-content{
+	color:#4a4a4a;
+}
+
+.modal-content label{
+	text-align: start!important;
+}
+#test{
+	text-align: start!important;
+}
+
+.myContentV{
+	margin: 60px 0;
+}
+.myContentV h3{
+	margin-bottom: -31px;
+}
