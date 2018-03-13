@@ -87,6 +87,8 @@ img.pull-left { margin-right: 10px; }
 #video, #mediaElement {
 	display: none;
 	position:relative;
+	width:1280px;
+	height: 720px;
 }
 
 #btnStop {

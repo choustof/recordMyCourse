@@ -36,6 +36,7 @@ function chronometer() {
     // if the chronometer reaches to the values for stop, calls whenChrStop(), else, auto-calls chronometer()
     if(zecsec == stzecsec && seconds == stseconds && mints == stmints) toAutoStop();
     else setTimeout("chronometer()", 100);
+    console.log(mints);
   }
 }
 
